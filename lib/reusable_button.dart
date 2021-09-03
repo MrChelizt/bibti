@@ -31,9 +31,9 @@ class ReusableButton extends StatelessWidget {
         ),
         textStyle: TextStyle(
           color: Colors.white,
-          fontSize: displayHeight(context) * 0.019,
+          fontSize: displayHeight(context) * 0.02,
           fontFamily: 'Kollektif',
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
         ),
       ),
       onPressed: onPressed,

@@ -42,20 +42,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                   color: kColorTeal,
                   fontFamily: 'Coves',
-                  fontSize: 80.0,
+                  fontSize: displayWidth(context) * 0.2,
                   fontWeight: FontWeight.w800,
                 ),
               ),
               SizedBox(
-                height: 10.0,
+                height: displayHeight(context) * 0.01,
               ),
               SizedBox(
-                height: 200,
-                width: 200,
+                width: displayWidth(context) * 0.5,
                 child: Image.asset('images/LogoTealLarge.png'),
               ),
               SizedBox(
-                height: 10.0,
+                height: displayHeight(context) * 0.01,
               ),
               SizedBox(
                 width: displayWidth(context) * 0.85,
@@ -64,7 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     'LOG IN',
                   ),
                   style: TextButton.styleFrom(
-                    padding: EdgeInsets.all(10.0),
                     primary: Colors.white,
                     backgroundColor: kColorTeal,
                     elevation: 5,
@@ -83,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               SizedBox(
-                height: 10.0,
+                height: displayHeight(context) * 0.01,
               ),
               SizedBox(
                 width: displayWidth(context) * 0.85,
@@ -92,7 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     'SIGN UP',
                   ),
                   style: TextButton.styleFrom(
-                    padding: EdgeInsets.all(10.0),
                     primary: kColorTeal,
                     backgroundColor: Colors.white,
                     elevation: 5,
@@ -111,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               SizedBox(
-                height: 120.0,
+                height: displayHeight(context) * 0.25,
               ),
             ],
           ),

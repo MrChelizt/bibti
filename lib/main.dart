@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
+import 'sizes_helpers.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,8 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                   color: kColorTeal,
                   fontFamily: 'Coves',
-                  fontSize: 60.0,
-                  fontWeight: FontWeight.w900,
+                  fontSize: 80.0,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
               SizedBox(
@@ -57,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 10.0,
               ),
               SizedBox(
-                width: 300.0,
+                width: displayWidth(context) * 0.85,
                 child: TextButton(
                   child: Text(
                     'LOG IN',
@@ -74,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     textStyle: TextStyle(
                       color: Colors.white,
+                      fontFamily: 'Kollektif',
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -84,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 10.0,
               ),
               SizedBox(
-                width: 300.0,
+                width: displayWidth(context) * 0.85,
                 child: TextButton(
                   child: Text(
                     'SIGN UP',
@@ -101,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     textStyle: TextStyle(
                       color: Colors.white,
+                      fontFamily: 'Kollektif',
                       fontWeight: FontWeight.w600,
                     ),
                   ),

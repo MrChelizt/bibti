@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'sizes_helpers.dart';
+import 'button_context.dart';
 
 void main() {
   runApp(MyApp());
@@ -51,30 +52,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Image.asset('images/LogoTealLarge.png'),
               ),
               SizedBox(
-                height: displayHeight(context) * 0.01,
+                height: displayHeight(context) * 0.015,
               ),
               SizedBox(
                 width: displayWidth(context) * 0.85,
-                child: TextButton(
-                  child: Text(
-                    'LOG IN',
-                  ),
-                  style: TextButton.styleFrom(
-                    primary: Colors.white,
-                    backgroundColor: kColorTeal,
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                    ),
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Kollektif',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+                child: ReusableButton(
+                  buttonColor: kColorTeal,
+                  buttonText: kLoginText,
                   onPressed: () {},
+                  textColor: Colors.white,
                 ),
               ),
               SizedBox(
@@ -82,26 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               SizedBox(
                 width: displayWidth(context) * 0.85,
-                child: TextButton(
-                  child: Text(
-                    'SIGN UP',
-                  ),
-                  style: TextButton.styleFrom(
-                    primary: kColorTeal,
-                    backgroundColor: Colors.white,
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                    ),
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Kollektif',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+                child: ReusableButton(
+                  textColor: kColorTeal,
                   onPressed: () {},
+                  buttonText: kSignUpText,
+                  buttonColor: Colors.white,
                 ),
               ),
               SizedBox(

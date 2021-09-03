@@ -11,3 +11,7 @@ const Color kColorTeal = Color(0xFF6ECCBF);
 const Color kColorGreen = Color(0xFFBED95D);
 
 const Color kColorPurpleLight = Color(0xFFC4C6FD);
+
+const kLoginText = 'log in';
+
+const kSignUpText = 'sign up';

@@ -1,7 +1,10 @@
+import 'package:bibti/screens/loginScreen.dart';
+import 'package:bibti/screens/signupScreen.dart';
+import 'package:bibti/widgets/buildReusableButton.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
-import '../sizes_helpers.dart';
-import '../reusable_button.dart';
+import '../utils/sizeHelperUtil.dart';
+import '../widgets/widgets.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -20,8 +23,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: displayHeight(context) * 0.05,
+              ),
               Text(
-                kTitleText,
+                kTitle,
                 style: TextStyle(
                   color: kColorTeal,
                   fontFamily: 'Coves',
@@ -30,34 +36,40 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
               SizedBox(
-                height: displayHeight(context) * 0.01,
+                height: displayHeight(context) * 0.02,
               ),
               SizedBox(
                 width: displayWidth(context) * 0.5,
                 child: Image.asset('images/LogoTealLarge.png'),
               ),
               SizedBox(
-                height: displayHeight(context) * 0.015,
+                height: displayHeight(context) * 0.025,
               ),
               SizedBox(
                 width: displayWidth(context) * 0.85,
-                child: ReusableButton(
+                height: displayHeight(context) * 0.05,
+                child: BuildReusableButton(
                   buttonColor: kColorTeal,
-                  buttonText: kLoginText,
-                  onPressed: () {},
+                  buttonText: kLogin,
                   textColor: Colors.white,
+                  onPressed: () {
+                    Navigator.pushNamed(context, LoginScreen.id);
+                  },
                 ),
               ),
               SizedBox(
-                height: displayHeight(context) * 0.01,
+                height: displayHeight(context) * 0.02,
               ),
               SizedBox(
                 width: displayWidth(context) * 0.85,
-                child: ReusableButton(
-                  textColor: kColorTeal,
-                  onPressed: () {},
-                  buttonText: kSignUpText,
+                height: displayHeight(context) * 0.05,
+                child: BuildReusableButton(
                   buttonColor: Colors.white,
+                  buttonText: kSignUp,
+                  textColor: kColorTeal,
+                  onPressed: () {
+                    Navigator.pushNamed(context, SignupScreen.id);
+                  },
                 ),
               ),
               SizedBox(

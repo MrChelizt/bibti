@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'sizes_helpers.dart';
+import '../utils/sizeHelperUtil.dart';
 
-class ReusableButton extends StatelessWidget {
+class BuildReusableButton extends StatelessWidget {
   final String buttonText;
   final Function onPressed;
   final Color buttonColor;
   final Color textColor;
 
-  ReusableButton({
+  BuildReusableButton({
     @required this.buttonText,
     @required this.onPressed,
     @required this.buttonColor,

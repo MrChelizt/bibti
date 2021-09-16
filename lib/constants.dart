@@ -10,12 +10,18 @@ const Color kColorGreen = Color(0xFFBED95D);
 
 const Color kColorPurpleLight = Color(0xFFC4C6FD);
 
-const kTitleText = 'bibti';
+const kTitle = 'bibti';
 
-const kLoginText = 'Login';
+const kLogin = 'Login';
 
-const kSignUpText = 'Signup';
+const kSignUp = 'Sign Up';
 
-const kEmailText = 'Email';
+const kEmail = 'Email';
 
-const kPasswordText = 'Password';
+const kPassword = 'Password';
+
+const kCreatePassword = "Create Password";
+
+const kForgotPassword = 'Forgot Password?';
+
+const kAlreadyHaveAccount = "Already Have an Account?";

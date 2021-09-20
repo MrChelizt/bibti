@@ -1,0 +1,8 @@
+enum InputType {
+  GENERIC,
+  NAME,
+  EMAIL,
+  PASSWORD,
+  PHONE_NUMBER,
+  VERIFICATION_CODE
+}

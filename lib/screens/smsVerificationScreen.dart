@@ -96,8 +96,10 @@ class _SmsVerificationScreenState extends State<SmsVerificationScreen> {
                                 context: context,
                                 isScrollControlled: true,
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.vertical(
-                                        top: Radius.circular(20))),
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(20),
+                                  ),
+                                ),
                                 builder: (context) => SingleChildScrollView(
                                       child: Container(
                                         child: PrivacyAndPermissionsScreen(),

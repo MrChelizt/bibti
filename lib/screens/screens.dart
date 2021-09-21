@@ -6,3 +6,7 @@ export 'phoneNumberScreen.dart';
 export 'smsVerificationScreen.dart';
 export 'privacyAndPermissionsScreen.dart';
 export 'homeScreen.dart';
+export 'waitWithMeScreen.dart';
+export 'takeTransportScreen.dart';
+export 'doorToDoorBuddyScreen.dart';
+export 'changePasswordScreen.dart';

@@ -1,7 +1,12 @@
+import 'dart:async';
+
 import 'package:bibti/constants.dart';
+import 'package:bibti/screens/takeTransportScreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bibti/utils/utils.dart';
 import 'package:bibti/screens/screens.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'dart:math' as math;
 
@@ -14,6 +19,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
+  Completer<GoogleMapController> _controller = Completer();
+  static const LatLng _center = const LatLng(45.521563, -122.677433);
+  void _onMapCreated(GoogleMapController controller) {
+    _controller.complete(controller);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,31 +54,105 @@ class _HomeScreenState extends State<HomeScreen>
               child: DrawerHeader(
                 decoration: BoxDecoration(color: kColorTeal),
                 child: Container(
-                  child: Text('data'),
+                  child: Text(
+                    'data',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   alignment: Alignment.bottomLeft,
                 ),
               ),
             ),
             ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
+              title: TextButton(
+                style: TextButton.styleFrom(primary: kColorPurple),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.email),
+                    SizedBox(
+                      width: displayWidth(context) * 0.04,
+                    ),
+                    Text(kChangeEmail)
+                  ],
+                ),
+                onPressed: () {},
+              ),
             ),
             ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
+              title: TextButton(
+                style: TextButton.styleFrom(primary: kColorPurple),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.security),
+                    SizedBox(
+                      width: displayWidth(context) * 0.04,
+                    ),
+                    Text(kChangePassword)
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.popAndPushNamed(context, ChangePasswordScreen.id);
+                },
+              ),
+            ),
+            ListTile(
+              title: TextButton(
+                style: TextButton.styleFrom(primary: kColorPurple),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.group),
+                    SizedBox(
+                      width: displayWidth(context) * 0.04,
+                    ),
+                    Text(kPairingActive)
+                  ],
+                ),
+                onPressed: () {},
+              ),
+            ),
+            ListTile(
+              title: TextButton(
+                style: TextButton.styleFrom(primary: kColorPurple),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.person_add),
+                    SizedBox(
+                      width: displayWidth(context) * 0.04,
+                    ),
+                    Text(kMyNetwork)
+                  ],
+                ),
+                onPressed: () {},
+              ),
+            ),
+            ListTile(
+              title: TextButton(
+                style: TextButton.styleFrom(primary: kColorPurple),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.phonelink_setup),
+                    SizedBox(
+                      width: displayWidth(context) * 0.04,
+                    ),
+                    Text(kPermissions)
+                  ],
+                ),
+                onPressed: () {},
+              ),
             ),
           ],
         ),
       ),
       body: Container(
         margin: EdgeInsets.all(displayWidth(context) * 0.04),
-        color: Colors.red,
+        child: GoogleMap(
+          onMapCreated: _onMapCreated,
+          initialCameraPosition: CameraPosition(target: _center, zoom: 11.0),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ExpandableFab(
@@ -76,33 +161,45 @@ class _HomeScreenState extends State<HomeScreen>
           Container(
             width: displayWidth(context) * 0.6,
             child: TextButton(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.hourglass_bottom),
-                  Text(
-                    kWaitWithMe.toUpperCase(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.hourglass_bottom),
+                    Text(
+                      kWaitWithMe.toUpperCase(),
+                    ),
+                  ],
+                ),
+                style: TextButton.styleFrom(
+                  primary: Colors.white,
+                  backgroundColor: kColorPurple,
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
                   ),
-                ],
-              ),
-              style: TextButton.styleFrom(
-                primary: Colors.white,
-                backgroundColor: kColorPurple,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: displayHeight(context) * 0.015,
+                    fontFamily: 'Kollektif',
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                textStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: displayHeight(context) * 0.015,
-                  fontFamily: 'Kollektif',
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              onPressed: () {},
-            ),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(40))),
+                          content: Container(
+                            child: WaitWithMeScreen(),
+                          ),
+                        );
+                      });
+                }),
           ),
           Container(
             width: displayWidth(context) * 0.6,
@@ -132,7 +229,20 @@ class _HomeScreenState extends State<HomeScreen>
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(40))),
+                        content: Container(
+                          child: TakeTransportScreen(),
+                        ),
+                      );
+                    });
+              },
             ),
           ),
           Container(
@@ -163,7 +273,20 @@ class _HomeScreenState extends State<HomeScreen>
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(40))),
+                        content: Container(
+                          child: DoorToDoorBuddyScreen(),
+                        ),
+                      );
+                    });
+              },
             ),
           ),
         ],
@@ -188,7 +311,9 @@ class _HomeScreenState extends State<HomeScreen>
                 onPressed: () {},
                 color: Colors.white,
               ),
-              SizedBox(),
+              SizedBox(
+                width: displayWidth(context) * 0.2,
+              ),
               IconButton(
                 icon: Icon(Icons.warning),
                 onPressed: () {},

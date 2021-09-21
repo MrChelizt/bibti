@@ -14,12 +14,12 @@ class MyApp extends StatelessWidget {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         SignupScreen.id: (context) => SignupScreen(),
-        ForgotPasswordScreen.id: (context) => ForgotPasswordScreen(),
         PhoneNumberScreen.id: (context) => PhoneNumberScreen(),
         SmsVerificationScreen.id: (context) => SmsVerificationScreen(),
         PrivacyAndPermissionsScreen.id: (context) =>
             PrivacyAndPermissionsScreen(),
         HomeScreen.id: (context) => HomeScreen(),
+        ChangePasswordScreen.id: (context) => ChangePasswordScreen(),
       },
     );
   }

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:bibti/utils/utils.dart';
 
 class PrivacyAndPermissionsScreen extends StatelessWidget {
-  static const String id = 'privacy_and_permissions _screen';
+  static const String id = 'privacy_and_permissions_screen';
 
   @override
   Widget build(BuildContext context) {

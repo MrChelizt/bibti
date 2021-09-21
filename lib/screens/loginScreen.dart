@@ -137,6 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             if (_key.currentState.validate()) {
                               _key.currentState.save();
+                              Navigator.popAndPushNamed(context, HomeScreen.id);
                             }
                           }),
                     ),

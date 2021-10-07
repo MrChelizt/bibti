@@ -250,7 +250,11 @@ class _SignupScreenState extends State<SignupScreen> {
                         buttonText: kSignUp,
                         textColor: Colors.white,
                         onPressed: () {
-                          Navigator.pushNamed(context, PhoneNumberScreen.id);
+                          if (_key.currentState.validate()) {
+                            Navigator.pushNamed(context, PhoneNumberScreen.id);
+                          } else {
+                            _autoValidate = AutovalidateMode.always;
+                          }
                         },
                       ),
                     ),

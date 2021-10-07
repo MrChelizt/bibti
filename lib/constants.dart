@@ -39,3 +39,6 @@ const kMyNetwork = 'My Network';
 const kPermissions = 'Permissions';
 const kNewPassword = 'New Password';
 const kUpdateUser = 'Update User';
+const kPasswordReset = 'Password Reset';
+const kCancel = 'Cancel';
+const kSubmit = 'Submit';

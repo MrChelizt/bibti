@@ -155,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.pushNamed(
+                              Navigator.popAndPushNamed(
                                   context, ForgotPasswordScreen.id);
                             }),
                     ),

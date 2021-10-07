@@ -1,4 +1,5 @@
 import 'dart:async';
+// import 'dart:html';
 
 import 'package:bibti/constants.dart';
 import 'package:bibti/screens/takeTransportScreen.dart';
@@ -20,7 +21,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   Completer<GoogleMapController> _controller = Completer();
-  static const LatLng _center = const LatLng(45.521563, -122.677433);
+  LatLng _center = LatLng(45.521563, -122.677433);
+
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
@@ -92,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen>
                   ],
                 ),
                 onPressed: () {
-                  Navigator.popAndPushNamed(context, ChangePasswordScreen.id);
+                  Navigator.pushNamed(context, ChangePasswordScreen.id);
                 },
               ),
             ),
@@ -152,6 +154,7 @@ class _HomeScreenState extends State<HomeScreen>
         child: GoogleMap(
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(target: _center, zoom: 11.0),
+          // myLocationButtonEnabled: true,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

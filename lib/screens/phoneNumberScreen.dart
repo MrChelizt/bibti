@@ -62,13 +62,8 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                           hintStyle:
                               TextStyle(fontSize: 16, color: Color(0xFFB3B1B1)),
                         ),
-                        onSaved: (String val) => {
-                          //   print(val),
-                          //   print(maskFormatter
-                          //       .updateMask(mask: '############')
-                          //       .text),
-                          _loginObject['phoneNumber'] = val
-                        },
+                        onSaved: (String val) =>
+                            {_loginObject['phoneNumber'] = val},
                         validator: (value) {
                           return InputValidationUtil().inputValidationAndFocus(
                               value,

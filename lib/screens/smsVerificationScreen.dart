@@ -91,20 +91,20 @@ class _SmsVerificationScreenState extends State<SmsVerificationScreen> {
                           onPressed: () {
                             if (_key.currentState.validate()) {
                               _key.currentState.save();
-                            }
-                            showModalBottomSheet(
-                                context: context,
-                                isScrollControlled: true,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(20),
+                              showModalBottomSheet(
+                                  context: context,
+                                  isScrollControlled: true,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(20),
+                                    ),
                                   ),
-                                ),
-                                builder: (context) => SingleChildScrollView(
-                                      child: Container(
-                                        child: PrivacyAndPermissionsScreen(),
-                                      ),
-                                    ));
+                                  builder: (context) => SingleChildScrollView(
+                                        child: Container(
+                                          child: PrivacyAndPermissionsScreen(),
+                                        ),
+                                      ));
+                            }
                           }),
                     ),
                   ],
